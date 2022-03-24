@@ -52,19 +52,20 @@
 		display: flex;
 		align-items: flex-end;
 		flex-direction: column-reverse;
-		gap: $item-distance;
 		.toast {
 			font-size: 13px;
 			font-weight: 600;
-			display: flex;
+			display: grid;
 			align-items: center;
 			width: fit-content;
+			margin-top: $item-distance;
 			padding: 8px 15px 8px 10px;
 			border: 2px solid;
 			border-radius: 6px;
 			background-color: white;
 			box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.05);
-			gap: 10px;
+			grid-auto-flow: column;
+			grid-column-gap: 10px;
 			.icon {
 				line-height: 1;
 				padding: 5px;
