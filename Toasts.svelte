@@ -46,7 +46,7 @@
 
 	#toasts {
 		position: fixed;
-		z-index: 1;
+		z-index: 2;
 		right: $window-distance;
 		bottom: $window-distance;
 		display: flex;
