@@ -4,9 +4,9 @@
 -->
 
 <script>
-    import {fade, fly} from 'svelte/transition';
-    import {flip} from 'svelte/animate';
-    import {toastStore} from "Core/Base/src/Utility/Toasts/toast";
+    import {fade, fly} from 'svelte/transition'
+    import {flip} from 'svelte/animate'
+    import {toastStore} from 'toast'
 </script>
 
 <div id="toasts">
