@@ -6,7 +6,7 @@
 <script>
     import {fade, fly} from 'svelte/transition'
     import {flip} from 'svelte/animate'
-    import {toastStore} from 'toast'
+    import {toastStore} from './toast.js'
 </script>
 
 <div id="toasts">
