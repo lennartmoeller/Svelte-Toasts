@@ -1,6 +1,6 @@
 <!--
   @author     Lennart Möller <kontakt@lennartmoeller.com>
-  @copyright  2020-2022 Lennart Möller
+  @copyright  2020-2023 Lennart Möller
 -->
 
 <script>

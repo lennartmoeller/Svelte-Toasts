@@ -1,16 +1,16 @@
 /**
  * @author     Lennart Möller <kontakt@lennartmoeller.com>
- * @copyright  2020-2022 Lennart Möller
+ * @copyright  2020-2023 Lennart Möller
  */
 
-import Toasts from "./Toasts.svelte";
-import {writable} from "svelte/store";
+import Toasts from './Toasts.svelte'
+import {writable} from 'svelte/store'
 
 /**
  * The standard display duration for the toast
  * @type {number}
  */
-const toastStdDuration = 3000;
+const toastStdDuration = 3000
 
 export const toast = {
     /**
@@ -19,11 +19,11 @@ export const toast = {
      * @param duration {number} The duration to display the toast
      */
     error: function (message, duration = toastStdDuration) {
-        init();
+        init()
         addToast({
             type: 'error',
             message: message
-        }, duration);
+        }, duration)
     },
     /**
      * Displays a warning toast
@@ -31,11 +31,11 @@ export const toast = {
      * @param duration {number} The duration to display the toast
      */
     warning: function (message, duration = toastStdDuration) {
-        init();
+        init()
         addToast({
             type: 'warning',
             message: message
-        }, duration);
+        }, duration)
     },
     /**
      * Displays a success toast
@@ -43,11 +43,11 @@ export const toast = {
      * @param duration {number} The duration to display the toast
      */
     success: function (message, duration = toastStdDuration) {
-        init();
+        init()
         addToast({
             type: 'success',
             message: message
-        }, duration);
+        }, duration)
     },
     /**
      * Displays an info toast
@@ -55,11 +55,11 @@ export const toast = {
      * @param duration {number} The duration to display the toast
      */
     info: function (message, duration = toastStdDuration) {
-        init();
+        init()
         addToast({
             type: 'info',
             message: message
-        }, duration);
+        }, duration)
     }
 }
 
@@ -67,13 +67,13 @@ export const toast = {
  * The toasts that are currently displayed
  * @type {Writable<{[id: string]: {type: string, message: string}}>}
  */
-export const toastStore = writable({});
+export const toastStore = writable({})
 
 /**
  * Initializes the Toast Svelte component
  */
 function init() {
-    if (!document.getElementById("toasts")) return new Toasts({target: document.body});
+    if (!document.getElementById('toasts')) return new Toasts({target: document.body})
 }
 
 /**
@@ -82,16 +82,16 @@ function init() {
  * @param duration {number} The duration to display the toast
  */
 function addToast(t, duration = toastStdDuration) {
-    let i;
+    let i
     toastStore.update(ts => {
-        i = (Object.keys(ts).length ? parseInt(Object.keys(ts).reduce((a, b) => ts[a] > ts[b] ? a : b)) : 0) + 1;
-        ts[i] = t;
-        return ts;
-    });
+        i = (Object.keys(ts).length ? parseInt(Object.keys(ts).reduce((a, b) => ts[a] > ts[b] ? a : b)) : 0) + 1
+        ts[i] = t
+        return ts
+    })
     setTimeout(() => {
         toastStore.update(ts => {
-            delete ts[i];
-            return ts;
+            delete ts[i]
+            return ts
         })
-    }, duration);
+    }, duration)
 }
